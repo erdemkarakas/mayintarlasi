@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayintarlasi.Helper.Validation;
@@ -30,8 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_giris;
     TextInputLayout etl_name,etl_pass;
+    TextView kayıt;
 
-    String kullanici_id;
+    public static String kullanici_id;
 
     Validation validationCheck = new Validation();
 
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         btn_giris = findViewById(R.id.btn_sign);
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
+        kayıt = findViewById(R.id.txt_kayıt);
 
         btn_giris.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
                 signin();
 
 
+            }
+        });
+
+        kayıt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Kayıt();
             }
         });
     }
@@ -87,6 +97,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public void Kayıt() {
+
+        Intent i = new Intent(getApplicationContext(), Signup.class);
+        startActivity(i);
+    }
 
     public static String POST(String url, JSONObject jsonObject) {
         InputStream inputStream = null;
@@ -157,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(new String(result.getBytes("ISO-8859-1"), "UTF-8"));
                         kullanici_id = jsonObject.getString("user_id");
 
+                        Toast.makeText(MainActivity.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
 
                         /* buraya mayın tarlası ana sınıfı gelecek
                             Intent i = new Intent(getApplicationContext(), DesignerActivity.class);

@@ -82,6 +82,19 @@
                 android:text="Giris"
                 android:textColor="#311b92" />
 
+            <TextView
+                android:id="@+id/txt_kayıt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_sign"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="48dp"
+                android:text="Kayıt Ol"
+                android:textColor="#757575"
+                android:clickable="true"
+                android:textSize="32sp"/>
+
+
         </RelativeLayout>
 
     </ScrollView>
