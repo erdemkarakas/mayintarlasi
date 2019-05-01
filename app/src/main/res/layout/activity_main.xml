@@ -20,6 +20,7 @@
         android:id="@+id/mayintarlasiGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"></com.example.mayintarlasi.views.grid.Grid>
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>
