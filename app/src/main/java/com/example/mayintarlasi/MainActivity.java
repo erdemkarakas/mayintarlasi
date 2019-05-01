@@ -180,10 +180,10 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(MainActivity.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
 
-                        /* buraya mayın tarlası ana sınıfı gelecek
-                            Intent i = new Intent(getApplicationContext(), DesignerActivity.class);
+                        /* buraya mayın tarlası ana sınıfı gelecek*/
+                            Intent i = new Intent(getApplicationContext(), Mine.class);
                             startActivity(i);
-                            */
+
 
 
 
@@ -195,7 +195,6 @@ public class MainActivity extends AppCompatActivity {
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
-                        //stopPGS();
 
                     }
                 }

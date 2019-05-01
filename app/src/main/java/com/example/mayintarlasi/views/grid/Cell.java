@@ -42,6 +42,7 @@ public class Cell extends BaseCell implements View.OnClickListener , View.OnLong
 
     @Override
     protected void onDraw(Canvas canvas) {
+
         super.onDraw(canvas);
         Log.d("Minesweeper" , "Cell::onDraw");
         drawButton(canvas);

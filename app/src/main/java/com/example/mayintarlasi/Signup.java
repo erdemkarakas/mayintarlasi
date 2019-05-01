@@ -176,10 +176,10 @@ public class Signup extends AppCompatActivity {
 
                         Toast.makeText(Signup.this, "Mayın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();
 
-                        /* buraya mayın tarlası ana sınıfı gelecek
-                            Intent i = new Intent(getApplicationContext(), DesignerActivity.class);
+                        /* buraya mayın tarlası ana sınıfı gelecek*/
+                            Intent i = new Intent(getApplicationContext(), Mine.class);
                             startActivity(i);
-                            */
+
 
 
 
@@ -191,7 +191,6 @@ public class Signup extends AppCompatActivity {
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
-                        //stopPGS();
 
                     }
                 }
