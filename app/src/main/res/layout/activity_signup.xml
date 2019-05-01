@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:padding="@dimen/layout_padding"
+        tools:context=".Signup">
+
+
+
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_top">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/margin_top"
+                android:padding="@dimen/default_padding">
+
+                <ImageView
+                    android:layout_width="@dimen/image_height"
+                    android:layout_height="@dimen/image_weight"
+                    android:background="@drawable/ic_person_plus"
+                    android:scaleType="fitXY"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/person"
+                    />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/etl_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/person"
+                    android:layout_marginTop="@dimen/margin_top"
+                    android:textColorHint="@color/colorhint">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/adi"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/textcolor" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/etl_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etl_name"
+                    android:textColorHint="@color/colorhint">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/et_pass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/sifre"
+                        android:inputType="numberPassword"
+                        android:textColor="@color/textcolor" />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <Button
+                    android:id="@+id/btn_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etl_pass"
+                    android:layout_marginTop="@dimen/button_margin_top"
+                    android:background="@drawable/btn_design"
+                    android:text="@string/kayit"
+                    android:textColor="@color/buttontextcolor" />
+
+
+                <Button
+                    android:id="@+id/btn_giris"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_sign"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/button_margin_top"
+                    android:text="@string/giris"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/buttontextcolor"
+                    android:textSize="@dimen/text_size" />
+
+
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+

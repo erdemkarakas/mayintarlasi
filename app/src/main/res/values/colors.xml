@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#9ad3de</color>
+    <color name="signintrans">#b353616a</color>
+    <color name="signuptrans">#B3189CE8</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+    <color name="white_transparent">#80ffffff</color>
+
+    <color name="endcolor">#00695C</color>
+    <color name="startcolor">#4DB6AC</color>
+    <color name="centercolor">#009688</color>
+
+    <color name="mesaj">#aed581</color>
+    <color name="right_mesaj">#81c784</color>
+    <color name="left_mesaj">#ffffff</color>
+    <color name="gelen_mesaj_adi">#fff176</color>
+
+    <color name="renk">#c9c9c9</color>
+    <color name="renk_darker">#757575</color>
+    <color name="renk_blue_grey">#455a64</color>
+    <color name="renk1">#e3e3e3</color>
+    <color name="renk2">#9ad3de</color>
+    <color name="renk3">#89bdd3</color>
+    <color name="Hardalsarısı">#ffc000</color>
+    <color name="textColortab">#6ed3cf</color>
+    <color name="anakın1">#c0dfd9</color>
+    <color name="anakın2">#e9ece5</color>
+    <color name="anakın3">#b3c2bf</color>
+    <color name="anakın4">#3b3a36</color>
+
+
+    <color name="graylight">#e9ece5</color>
+
+
+
+    <color name="colorhint">#bdbdbd</color>
+    <color name="textcolor">#651fff</color>
+    <color name="buttontextcolor">#311b92</color>
+
+
+
+
 </resources>
+

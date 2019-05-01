@@ -27,29 +27,28 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-public class MainActivity extends AppCompatActivity {
+public class Signup extends AppCompatActivity {
 
-    Button btn_giris,btn_kayit;
+    Button btn_kayıt,btn_giris;
     TextInputLayout etl_name,etl_pass;
 
-    public static String kullanici_id;
-
     Validation validationCheck = new Validation();
+
+    MainActivity ma = new MainActivity();
 
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.MyMaterialTheme);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
-        btn_giris = findViewById(R.id.btn_sign);
+        btn_kayıt = findViewById(R.id.btn_sign);
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
-        btn_kayit = findViewById(R.id.btn_kayit);
+        btn_giris = findViewById(R.id.btn_giris);
 
-        btn_giris.setOnClickListener(new View.OnClickListener() {
+        btn_kayıt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signin();
@@ -58,16 +57,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_kayit.setOnClickListener(new View.OnClickListener() {
+
+        btn_giris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Kayıt();
-            }
+                Giris();
+           }
         });
-
-
-
     }
 
 
@@ -92,22 +88,21 @@ public class MainActivity extends AppCompatActivity {
         if(errorCount==1) {
 
 
-                HttpAsyncTask LogIn = new HttpAsyncTask();
-                /* buraya webb api linki gelecek*/
-                LogIn.execute("http://192.168.1.39:9090/Api/Values/UserCheck");
+            HttpAsyncTask LogIn = new HttpAsyncTask();
+            /* buraya webb api linki gelecek*/
+            LogIn.execute("http://192.168.1.39:9090/Api/Values/newuser");
 
 
         }
 
     }
 
+    public void Giris() {
 
-    public void Kayıt() {
-
-        Intent i = new Intent(MainActivity.this, Signup.class);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
-
     }
+
 
     public static String POST(String url, JSONObject jsonObject) {
         InputStream inputStream = null;
@@ -160,9 +155,9 @@ public class MainActivity extends AppCompatActivity {
 
             Log.d("JsonResponseMain", result);
 
-            if(result.contains("yanlıs"))
+            if(result.contains("Hata"))
             {
-                Toast.makeText(MainActivity.this, "Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Signup.this, "Güvenlik", Toast.LENGTH_SHORT).show();
                 Log.d("burada", "burada");
 
             }
@@ -176,9 +171,10 @@ public class MainActivity extends AppCompatActivity {
                     try {
 
                         JSONObject jsonObject = new JSONObject(new String(result.getBytes("ISO-8859-1"), "UTF-8"));
-                        kullanici_id = jsonObject.getString("user_id");
+                        ma.kullanici_id = jsonObject.getString("user_id");
 
-                        Toast.makeText(MainActivity.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(Signup.this, "Mayın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();
 
                         /* buraya mayın tarlası ana sınıfı gelecek
                             Intent i = new Intent(getApplicationContext(), DesignerActivity.class);
@@ -191,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Log.d("burada","burada2");
 
-                        Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Hata", Toast.LENGTH_SHORT).show();
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
@@ -226,5 +222,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
-

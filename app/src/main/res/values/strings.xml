@@ -1,3 +1,21 @@
 <resources>
+
     <string name="app_name">mayintarlasi</string>
+    <string name="login_form">login_form</string>
+    <string name="person">person</string>
+
+    <string name="etl_name">etl_name</string>
+    <string name="et_name">et_name</string>
+    <string name="etl_pass">etl_pass</string>
+    <string name="et_pass">et_pass</string>
+
+    <string name="btn_kayit">btn_kayit</string>
+    <string name="btn_giris">btn_giris</string>
+    <string name="btn_sign">btn_sign</string>
+
+    <string name="giris">Giris Yap</string>
+    <string name="kayit">Kayıt Ol</string>
+    <string name="sifre">Sifre</string>
+    <string name="adi">Kullanıcı Adı</string>
+
 </resources>
