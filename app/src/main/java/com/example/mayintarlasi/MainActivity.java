@@ -29,9 +29,8 @@ import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_giris;
+    Button btn_giris,btn_kayit;
     TextInputLayout etl_name,etl_pass;
-    TextView kayıt;
 
     public static String kullanici_id;
 
@@ -42,12 +41,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.MyMaterialTheme);
         setContentView(R.layout.activity_main);
 
         btn_giris = findViewById(R.id.btn_sign);
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
-        kayıt = findViewById(R.id.txt_kayıt);
+        btn_kayit = findViewById(R.id.btn_kayit);
 
         btn_giris.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,12 +58,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        kayıt.setOnClickListener(new View.OnClickListener() {
+        btn_kayit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Kayıt();
             }
         });
+
+
+
     }
 
 
@@ -90,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
                 HttpAsyncTask LogIn = new HttpAsyncTask();
                 /* buraya webb api linki gelecek*/
-                LogIn.execute("/api/values/UserCheck");
+                LogIn.execute("http://192.168.1.39:9090/Api/Values/UserCheck");
 
 
         }
@@ -100,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void Kayıt() {
 
-        Intent i = new Intent(getApplicationContext(), Signup.class);
+        Intent i = new Intent(MainActivity.this, Signup.class);
         startActivity(i);
+
     }
 
     public static String POST(String url, JSONObject jsonObject) {
@@ -137,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("token", "a153dd6s33xv6uy9hgf23b16gh")
-                        .put("kullanici", etl_name.getEditText().getText().toString().trim())
+                        .put("name", etl_name.getEditText().getText().toString().trim())
                         .put("pass", etl_pass.getEditText().getText().toString().trim());
 
             } catch (JSONException e) {
@@ -155,9 +160,9 @@ public class MainActivity extends AppCompatActivity {
 
             Log.d("JsonResponseMain", result);
 
-            if(result.contains("Hata"))
+            if(result.contains("yanlıs"))
             {
-                Toast.makeText(MainActivity.this, "Tc Kimlik numaranızı ve Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
                 Log.d("burada", "burada");
 
             }
@@ -186,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Log.d("burada","burada2");
 
-                        Toast.makeText(MainActivity.this, "Tc Kimlik numaranızı ve Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();

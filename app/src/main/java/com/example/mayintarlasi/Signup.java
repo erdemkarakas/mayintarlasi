@@ -29,9 +29,8 @@ import java.io.UnsupportedEncodingException;
 
 public class Signup extends AppCompatActivity {
 
-    Button btn_kayıt;
+    Button btn_kayıt,btn_giris;
     TextInputLayout etl_name,etl_pass;
-    TextView giris;
 
     Validation validationCheck = new Validation();
 
@@ -42,12 +41,12 @@ public class Signup extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
 
         btn_kayıt = findViewById(R.id.btn_sign);
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
-        giris = findViewById(R.id.txt_giris);
+        btn_giris = findViewById(R.id.btn_giris);
 
         btn_kayıt.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,11 +57,12 @@ public class Signup extends AppCompatActivity {
             }
         });
 
-        giris.setOnClickListener(new View.OnClickListener() {
+
+        btn_giris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Giris();
-            }
+           }
         });
     }
 
@@ -90,7 +90,7 @@ public class Signup extends AppCompatActivity {
 
             HttpAsyncTask LogIn = new HttpAsyncTask();
             /* buraya webb api linki gelecek*/
-            LogIn.execute("/api/values/UserAdd");
+            LogIn.execute("http://192.168.1.39:9090/Api/Values/newuser");
 
 
         }
@@ -137,7 +137,7 @@ public class Signup extends AppCompatActivity {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("token", "a153dd6s33xv6uy9hgf23b16gh")
-                        .put("kullanici", etl_name.getEditText().getText().toString().trim())
+                        .put("name", etl_name.getEditText().getText().toString().trim())
                         .put("pass", etl_pass.getEditText().getText().toString().trim());
 
             } catch (JSONException e) {
@@ -157,7 +157,7 @@ public class Signup extends AppCompatActivity {
 
             if(result.contains("Hata"))
             {
-                Toast.makeText(Signup.this, "Tc Kimlik numaranızı ve Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Signup.this, "Güvenlik", Toast.LENGTH_SHORT).show();
                 Log.d("burada", "burada");
 
             }
@@ -174,7 +174,7 @@ public class Signup extends AppCompatActivity {
                         ma.kullanici_id = jsonObject.getString("user_id");
 
 
-                        Toast.makeText(Signup.this, "MAyın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Mayın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();
 
                         /* buraya mayın tarlası ana sınıfı gelecek
                             Intent i = new Intent(getApplicationContext(), DesignerActivity.class);
@@ -187,7 +187,7 @@ public class Signup extends AppCompatActivity {
                         e.printStackTrace();
                         Log.d("burada","burada2");
 
-                        Toast.makeText(Signup.this, "Tc Kimlik numaranızı ve Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Hata", Toast.LENGTH_SHORT).show();
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
