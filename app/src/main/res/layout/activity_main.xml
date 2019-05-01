@@ -4,27 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.example.mayintarlasi.views.grid.Grid
-        android:id="@+id/mayintarlasiGridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"></com.example.mayintarlasi.views.grid.Grid>
-
-</RelativeLayout>
-=======
     android:background="@drawable/background"
     android:padding="@dimen/default_padding"
     tools:context=".MainActivity"
@@ -121,4 +100,3 @@
 
 </RelativeLayout>
 
->>>>>>> sametGiris
