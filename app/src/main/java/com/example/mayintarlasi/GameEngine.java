@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.marcellelek.minesweepertutorial.util.Generator;
+import com.example.mayintarlasi.util.Generator;
 import com.example.mayintarlasi.util.PrintGrid;
 import com.example.mayintarlasi.views.grid.Cell;
 

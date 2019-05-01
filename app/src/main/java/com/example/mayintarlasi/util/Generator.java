@@ -1,4 +1,4 @@
-package com.marcellelek.minesweepertutorial.util;
+package com.example.mayintarlasi.util;
 
 import java.util.Random;
 
