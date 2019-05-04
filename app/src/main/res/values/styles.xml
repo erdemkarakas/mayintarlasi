@@ -16,7 +16,7 @@
         <item name="colorPrimary">@color/right_mesaj</item>
         <item name="colorPrimaryDark">@color/textColortab</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/splash_back</item>
 
     </style>
 
