@@ -17,6 +17,7 @@
     <dimen name="default_padding">8dp</dimen>
     <dimen name="image_weight">200dp</dimen>
     <dimen name="image_height">200dp</dimen>
+    <dimen name="relative_padding">4dp</dimen>
 
 
 

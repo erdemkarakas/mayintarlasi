@@ -9,37 +9,46 @@
 
     <RelativeLayout
         android:id="@+id/rlskor"
-        android:padding="@dimen/default_padding"
+        android:padding="@dimen/relative_padding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <Chronometer
             android:id="@+id/skor"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="32dp"
             android:textAlignment="center"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:layout_alignParentRight="true"/>
 
 
         <ImageButton
-            android:layout_height="50dp"
+            android:layout_height="32dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo"
-            android:scaleType="fitCenter"
+            android:scaleType="centerCrop"
             android:id="@+id/btn_baslat"
             android:layout_width="100dp"/>
     </RelativeLayout>
 
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
+    android:padding="@dimen/relative_padding"
+    android:layout_below="@id/rlskor"
+    >
 
     <com.example.mayintarlasi.views.grid.Grid
         android:id="@+id/mayintarlasiGridView"
-        android:layout_below="@id/rlskor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:gravity="fill|fill_horizontal|fill_vertical"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
 
 
 

@@ -139,7 +139,7 @@ public class GameEngine {
             long elapsedMillis = SystemClock.elapsedRealtime() - m.ch.getBase();
 
 
-            sure = String.format("%d sn",
+            sure = String.format("%d",
                     TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)*60+TimeUnit.MILLISECONDS.toSeconds(elapsedMillis) -
                             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)));
 
@@ -204,7 +204,6 @@ public class GameEngine {
             try {
                 jsonObject.put("token", "a153dd6s33xv6uy9hgf23b16gh")
                         .put("id", m.kullanici_id)
-                        .put("saat", dateFormat.format(d).toString().trim())
                         .put("sure", sure);
 
             } catch (JSONException e) {
