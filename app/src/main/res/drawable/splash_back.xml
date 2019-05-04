@@ -4,7 +4,7 @@
     <item android:drawable="@color/windowBackground"/>
     <item>
         <bitmap
-            android:src="@drawable/liv"
+            android:src="@drawable/mayıntarlasi_splashscreen"
             android:gravity="center"/>
     </item>
 </layer-list>
