@@ -65,6 +65,8 @@
                         android:hint="@string/sifre"
                         android:inputType="numberPassword"
                         android:textColor="@color/textcolor" />
+
+
                 </android.support.design.widget.TextInputLayout>
 
 
@@ -98,5 +100,5 @@
 
         </ScrollView>
 
-    </RelativeLayout>
+</RelativeLayout>
 

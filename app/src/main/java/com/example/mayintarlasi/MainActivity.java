@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayintarlasi.Helper.Validation;
@@ -29,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn_giris,btn_kayit;
+    Button btn_giris,btn_kayit,btn_skip;
     TextInputLayout etl_name,etl_pass;
 
     public static String kullanici_id;
@@ -42,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(R.style.MyMaterialTheme);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signin);
 
         btn_giris = findViewById(R.id.btn_sign);
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
         btn_kayit = findViewById(R.id.btn_kayit);
-
+        btn_skip = findViewById(R.id.btn_skip);
         btn_giris.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +66,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
+        btn_skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Mine.class);
+                startActivity(i);
+            }
+        });
     }
+
+
 
 
     public void signin() {
