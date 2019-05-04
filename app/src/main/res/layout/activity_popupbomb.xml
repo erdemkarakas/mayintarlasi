@@ -19,11 +19,14 @@
         />
 
     <ImageButton
-        android:layout_height="50dp"
+        android:layout_height="32dp"
         android:layout_alignParentRight="true"
-        android:src="@drawable/logo"
-        android:scaleType="fitCenter"
+        android:background="@drawable/logo"
+        android:scaleType="center"
+        android:padding="30dp"
         android:id="@+id/btn_yeni"
         android:layout_width="100dp"/>
+
+
 
 </RelativeLayout>
