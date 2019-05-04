@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mayintarlasi.Helper.Validation;
@@ -34,7 +33,7 @@ public class Signup extends AppCompatActivity {
 
     Validation validationCheck = new Validation();
 
-    MainActivity ma = new MainActivity();
+    Mine m = new Mine();
 
 
 
@@ -102,7 +101,7 @@ public class Signup extends AppCompatActivity {
 
     public void Giris() {
 
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), Signin.class);
         startActivity(i);
     }
 
@@ -174,7 +173,7 @@ public class Signup extends AppCompatActivity {
                     try {
 
                         JSONObject jsonObject = new JSONObject(new String(result.getBytes("ISO-8859-1"), "UTF-8"));
-                        ma.kullanici_id = jsonObject.getString("user_id");
+                        m.kullanici_id = jsonObject.getString("user_id");
 
 
                         Toast.makeText(Signup.this, "Mayın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();

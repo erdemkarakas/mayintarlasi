@@ -3,9 +3,7 @@ package com.example.mayintarlasi.Helper;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by samet on 20.11.2017.
- */
+
 
 public class Validation {
     public boolean isValidEmail(String email) {

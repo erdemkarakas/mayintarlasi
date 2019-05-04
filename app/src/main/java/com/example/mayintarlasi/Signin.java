@@ -26,17 +26,16 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
-public class MainActivity extends AppCompatActivity {
+public class Signin extends AppCompatActivity {
 
     Button btn_giris,btn_kayit,btn_skip;
     TextInputLayout etl_name,etl_pass;
 
-    public static String kullanici_id;
 
     Validation validationCheck = new Validation();
 
 
-
+    Mine m = new Mine();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void Kayıt() {
 
-        Intent i = new Intent(MainActivity.this, Signup.class);
+        Intent i = new Intent(Signin.this, Signup.class);
         startActivity(i);
 
     }
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
             if(result.contains("yanlıs"))
             {
-                Toast.makeText(MainActivity.this, "Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Signin.this, "Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
                 Log.d("burada", "burada");
 
             }
@@ -183,9 +182,9 @@ public class MainActivity extends AppCompatActivity {
                     try {
 
                         JSONObject jsonObject = new JSONObject(new String(result.getBytes("ISO-8859-1"), "UTF-8"));
-                        kullanici_id = jsonObject.getString("user_id");
+                        m.kullanici_id = jsonObject.getString("user_id");
 
-                        Toast.makeText(MainActivity.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signin.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
 
                         /* buraya mayın tarlası ana sınıfı gelecek*/
                             Intent i = new Intent(getApplicationContext(), Mine.class);
@@ -198,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                         Log.d("burada","burada2");
 
-                        Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signin.this, result, Toast.LENGTH_SHORT).show();
 
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();

@@ -13,20 +13,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="40dp"
-            android:text="00:00"
+        <Chronometer
+            android:id="@+id/skor"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textAlignment="center"
+            android:textSize="30dp"
             android:layout_alignParentRight="true"/>
+
 
         <ImageButton
             android:layout_height="50dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/logo"
             android:scaleType="fitCenter"
+            android:id="@+id/btn_baslat"
             android:layout_width="100dp"/>
     </RelativeLayout>
 

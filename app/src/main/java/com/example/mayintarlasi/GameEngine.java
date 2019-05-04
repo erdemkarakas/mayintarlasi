@@ -1,22 +1,51 @@
 package com.example.mayintarlasi;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.mayintarlasi.util.Generator;
 import com.example.mayintarlasi.util.PrintGrid;
 import com.example.mayintarlasi.views.grid.Cell;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 
 public class GameEngine {
+
     private static GameEngine instance;
 
     public static final int BOMB_NUMBER = 10;
     public static final int WIDTH = 10;
     public static final int HEIGHT = 16;
 
+
+    Mine m = new Mine();
+
+
     private Context context;
+
+    public String sure;
 
     private Cell[][] MinesweeperGrid = new Cell[WIDTH][HEIGHT];
 
@@ -27,7 +56,7 @@ public class GameEngine {
         return instance;
     }
 
-    private GameEngine(){ }
+    public GameEngine(){ }
 
     public void createGrid(Context context){
         Log.e("GameEngine","createGrid is working");
@@ -84,6 +113,9 @@ public class GameEngine {
         checkEnd();
     }
 
+
+
+
     private boolean checkEnd(){
         int bombNotFound = BOMB_NUMBER;
         int notRevealed = WIDTH * HEIGHT;
@@ -101,8 +133,137 @@ public class GameEngine {
 
         if( bombNotFound == 0 && notRevealed == 0 ){
             Toast.makeText(context,"Game won", Toast.LENGTH_SHORT).show();
+
+
+            m.ch.stop();
+            long elapsedMillis = SystemClock.elapsedRealtime() - m.ch.getBase();
+
+
+            sure = String.format("%d sn",
+                    TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)*60+TimeUnit.MILLISECONDS.toSeconds(elapsedMillis) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)));
+
+            m.ch.setBase(SystemClock.elapsedRealtime());
+
+
+            recordsave();
+
+            popupbomb pb= new popupbomb();
+            pb.sure = sure;
+
+            context.startActivity(new Intent(context, popupbomb.class));
+
+
         }
         return false;
+    }
+
+    private void recordsave() {
+
+        HttpAsyncTask LogIn = new HttpAsyncTask();
+        /* buraya webb api linki gelecek*/
+        LogIn.execute("http://192.168.1.39:9090/Api/Values/recordsave");
+    }
+
+    public static String POST(String url, JSONObject jsonObject) {
+        InputStream inputStream = null;
+        String result = "";
+        try {
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost(url);
+            String json = "";
+            json = jsonObject.toString();
+            StringEntity se = new StringEntity(json, "UTF-8");
+            httpPost.setEntity(se);
+            httpPost.setHeader("Accept", "application/json");
+            httpPost.setHeader("Content-type", "application/json");
+            HttpResponse httpResponse = httpclient.execute(httpPost);
+            inputStream = httpResponse.getEntity().getContent();
+            if (inputStream != null)
+                result = convertInputStreamToString(inputStream);
+            else
+                result = "Did not work!";
+
+        } catch (Exception e) {
+            Log.d("InputStream", e.getLocalizedMessage());
+        }
+        return result;
+    }
+
+
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected String doInBackground(String... urls) {
+
+            Date d = new Date();
+
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+
+
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("token", "a153dd6s33xv6uy9hgf23b16gh")
+                        .put("id", m.kullanici_id)
+                        .put("saat", dateFormat.format(d).toString().trim())
+                        .put("sure", sure);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            Log.d("recordpost",jsonObject.toString());
+            return POST(urls[0], jsonObject);
+
+        }
+
+
+        // onPostExecute displays the results of the AsyncTask.
+        @Override
+        protected void onPostExecute(String result) {
+
+            Log.d("recordresult", result);
+
+            if(result.contains("Hata"))
+            {
+                Toast.makeText(context, "Güvenlik", Toast.LENGTH_SHORT).show();
+                Log.d("burada", "burada");
+
+            }
+            else {
+
+                try {
+
+//                Toast.makeText(MainActivity.this, result, Toast.LENGTH_SHORT).show();
+                    Log.d("recordresult", result);
+
+                    if(result.contains("true")) {
+                        Toast.makeText(context, "Rekor Kayıt Edildi", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        {
+                            Toast.makeText(context, "Hata", Toast.LENGTH_SHORT).show();
+                        }
+                }
+                catch (Exception ex)
+                {
+                    Log.d("burada","burada3");
+                }
+
+            }
+        }
+
+
+    }
+
+
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        String line = "";
+        String result = "";
+        while ((line = bufferedReader.readLine()) != null)
+            result += line;
+
+        inputStream.close();
+        return result;
     }
 
     public void flag( int x , int y ){
@@ -120,5 +281,28 @@ public class GameEngine {
                 getCellAt(x,y).setRevealed();
             }
         }
+        Mine m = new Mine();
+
+        m.ch.stop();
+        long elapsedMillis = SystemClock.elapsedRealtime() - m.ch.getBase();
+
+
+        sure = String.format("%d sn",
+                TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)*60+TimeUnit.MILLISECONDS.toSeconds(elapsedMillis) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)));
+
+        m.ch.setBase(SystemClock.elapsedRealtime());
+
+
+        popupbomb pb= new popupbomb();
+        pb.sure = sure;
+
+        context.startActivity(new Intent(context, popupbomb.class));
+
+
+
+//        m.mayintarlasiGridView.setVisibility(View.INVISIBLE);
+
+
     }
 }
