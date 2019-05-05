@@ -85,21 +85,21 @@ public class Signin extends AppCompatActivity {
         if (!validationCheck.isUserNameCorrect(etl_name.getEditText().getText().toString().trim()))
         {
             errorCount=0;
-            etl_name.setError("Gecersiz kullanıcı adı");
+            etl_name.setError("Gecersiz Kullanıcı Adı");
         }
 
 
         if (validationCheck.isValidPass(etl_pass.getEditText().getText().toString().trim()))
         {
             errorCount=0;
-            etl_pass.setError("Gecersiz Sifre");
+            etl_pass.setError("Geçersiz Şifre");
         }
 
         if(errorCount==1) {
 
 
                 HttpAsyncTask LogIn = new HttpAsyncTask();
-                /* buraya webb api linki gelecek*/
+                /* Buraya webb api linki gelecek*/
                 LogIn.execute("http://192.168.1.39:9090/Api/Values/UserCheck");
 
 
@@ -168,7 +168,7 @@ public class Signin extends AppCompatActivity {
 
             if(result.contains("yanlıs"))
             {
-                Toast.makeText(Signin.this, "Sifrenizi Dogru Girdiğinizden Emin olun !!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Signin.this, "Şifrenizi Doğru Girdiğinizden Emin olun", Toast.LENGTH_SHORT).show();
                 Log.d("burada", "burada");
 
             }

@@ -5,6 +5,9 @@ import java.util.Random;
 
 public class Generator {
 
+
+    //Oluşturucu
+
     public static int[][] generate( int bombnumber , final int width , final int height){
 
         Random r = new Random();
@@ -28,7 +31,7 @@ public class Generator {
 
         return grid;
     }
-
+    //Komşuları hesapla
     private static int[][] calculateNeigbours( int[][] grid , final int width , final int height){
         for( int x = 0 ; x < width ; x++){
             for( int y = 0 ; y < height ; y++){
@@ -38,7 +41,7 @@ public class Generator {
 
         return grid;
     }
-
+    //komşu numarası al
     private static int getNeighbourNumber( final int grid[][] , final int x , final int y , final int width , final int height){
         if( grid[x][y] == -1 ){
             return -1;
@@ -46,18 +49,18 @@ public class Generator {
 
         int count = 0;
 
-        if( isMineAt(grid,x - 1 ,y + 1,width,height)) count++; // top-left
-        if( isMineAt(grid,x     ,y + 1,width,height)) count++; // top
-        if( isMineAt(grid,x + 1 ,y + 1,width,height)) count++; // top-right
-        if( isMineAt(grid,x - 1 ,y    ,width,height)) count++; // left
-        if( isMineAt(grid,x + 1 ,y    ,width,height)) count++; // right
-        if( isMineAt(grid,x - 1 ,y - 1,width,height)) count++; // bottom-left
-        if( isMineAt(grid,x     ,y - 1,width,height)) count++; // bottom
-        if( isMineAt(grid,x + 1 ,y - 1,width,height)) count++; // bottom-right
+        if( isMineAt(grid,x - 1 ,y + 1,width,height)) count++; // sol-üst
+        if( isMineAt(grid,x     ,y + 1,width,height)) count++; // üst
+        if( isMineAt(grid,x + 1 ,y + 1,width,height)) count++; // üst-sağ
+        if( isMineAt(grid,x - 1 ,y    ,width,height)) count++; // sol
+        if( isMineAt(grid,x + 1 ,y    ,width,height)) count++; // sağ
+        if( isMineAt(grid,x - 1 ,y - 1,width,height)) count++; // alt-sol
+        if( isMineAt(grid,x     ,y - 1,width,height)) count++; // alt
+        if( isMineAt(grid,x + 1 ,y - 1,width,height)) count++; // alt-sağ
 
         return count;
     }
-
+    //mayın varsa
     private static boolean isMineAt( final int [][] grid, final int x , final int y , final int width , final int height){
         if( x >= 0 && y >= 0 && x < width && y < height ){
             if( grid[x][y] == -1 ){

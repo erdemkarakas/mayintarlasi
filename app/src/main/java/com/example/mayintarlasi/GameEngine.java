@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.mayintarlasi.util.Generator;
@@ -24,7 +23,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -148,10 +146,10 @@ public class GameEngine {
 
             recordsave();
 
-            popupbomb pb= new popupbomb();
+            Popupbomb pb= new Popupbomb();
             pb.sure = sure;
 
-            context.startActivity(new Intent(context, popupbomb.class));
+            context.startActivity(new Intent(context, Popupbomb.class));
 
 
         }
@@ -293,14 +291,13 @@ public class GameEngine {
         m.ch.setBase(SystemClock.elapsedRealtime());
 
 
-        popupbomb pb= new popupbomb();
+        Popupbomb pb= new Popupbomb();
         pb.sure = sure;
 
-        context.startActivity(new Intent(context, popupbomb.class));
+        context.startActivity(new Intent(context, Popupbomb.class));
 
 
 
-//        m.mayintarlasiGridView.setVisibility(View.INVISIBLE);
 
 
     }

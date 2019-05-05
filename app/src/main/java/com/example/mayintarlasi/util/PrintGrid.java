@@ -2,9 +2,7 @@ package com.example.mayintarlasi.util;
 
 import android.util.Log;
 
-/**
- * Created by Marcell on 2016. 04. 01..
- */
+//ızgara oluştur
 public class PrintGrid {
 
     public static void print( final int[][] grid , final int width , final int height ){
@@ -17,3 +15,5 @@ public class PrintGrid {
         }
     }
 }
+
+

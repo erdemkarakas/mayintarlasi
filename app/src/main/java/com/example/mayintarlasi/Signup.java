@@ -77,14 +77,14 @@ public class Signup extends AppCompatActivity {
         if (!validationCheck.isUserNameCorrect(etl_name.getEditText().getText().toString().trim()))
         {
             errorCount=0;
-            etl_name.setError("Gecersiz kullanıcı adı");
+            etl_name.setError("Geçersiz Kullanıcı Adı");
         }
 
 
         if (validationCheck.isValidPass(etl_pass.getEditText().getText().toString().trim()))
         {
             errorCount=0;
-            etl_pass.setError("Gecersiz Sifre");
+            etl_pass.setError("Geçersiz Şifre");
         }
 
         if(errorCount==1) {
@@ -176,9 +176,9 @@ public class Signup extends AppCompatActivity {
                         m.kullanici_id = jsonObject.getString("user_id");
 
 
-                        Toast.makeText(Signup.this, "Mayın tarlasına Kayıt olusturuldu", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, "Mayın tarlasına Kayıt oluşturuldu", Toast.LENGTH_SHORT).show();
 
-                        /* buraya mayın tarlası ana sınıfı gelecek*/
+
                             Intent i = new Intent(getApplicationContext(), Mine.class);
                             startActivity(i);
 

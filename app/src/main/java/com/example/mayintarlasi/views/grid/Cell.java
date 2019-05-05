@@ -6,9 +6,11 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.mayintarlasi.GameEngine;
 import com.example.mayintarlasi.R;
+import com.example.mayintarlasi.Signin;
 
 
 public class Cell extends BaseCell implements View.OnClickListener , View.OnLongClickListener{
@@ -34,7 +36,11 @@ public class Cell extends BaseCell implements View.OnClickListener , View.OnLong
 
     @Override
     public boolean onLongClick(View v) {
-        GameEngine.getInstance().flag( getXPos() , getYPos() );
+        if(!isRevealed()){
+            GameEngine.getInstance().flag( getXPos() , getYPos() );
+        }
+
+
 
         return true;
     }

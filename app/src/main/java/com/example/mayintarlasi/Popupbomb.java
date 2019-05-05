@@ -5,11 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class popupbomb extends AppCompatActivity {
+public class Popupbomb extends AppCompatActivity {
 
     ImageButton btn_yeni;
     TextView txt_skor;
@@ -37,7 +36,7 @@ public class popupbomb extends AppCompatActivity {
         btn_yeni.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popupbomb.this, Mine.class));
+                startActivity(new Intent(Popupbomb.this, Mine.class));
 
             }
         });
