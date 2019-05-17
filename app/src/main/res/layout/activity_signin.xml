@@ -68,13 +68,7 @@
                     android:inputType="numberPassword"
                     android:textColor="@color/textcolor" />
 
-                <Button
-                    android:id="@+id/btn_skip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Geç"
-                    android:background="@drawable/btn_design"
-                    />
+
             </android.support.design.widget.TextInputLayout>
 
 

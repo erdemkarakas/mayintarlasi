@@ -147,7 +147,7 @@ public class Popupbomb extends AppCompatActivity {
             Log.d("JsonResultAllOrderYeni", result);
 
 
-            txt_rekor.setText(result);
+            txt_rekor.setText(result+" Sn");
 
         }
     }

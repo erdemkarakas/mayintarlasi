@@ -28,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 
 public class Signup extends AppCompatActivity {
 
-    Button btn_kayıt,btn_giris,btn_skip;
+    Button btn_kayıt,btn_giris;
     TextInputLayout etl_name,etl_pass;
 
     Validation validationCheck = new Validation();
@@ -46,7 +46,7 @@ public class Signup extends AppCompatActivity {
         etl_name = findViewById(R.id.etl_name);
         etl_pass = findViewById(R.id.etl_pass);
         btn_giris = findViewById(R.id.btn_giris);
-        btn_skip = findViewById(R.id.btn_skip);
+
 
         btn_kayıt.setOnClickListener(new View.OnClickListener() {
             @Override

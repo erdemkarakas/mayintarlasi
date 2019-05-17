@@ -283,7 +283,7 @@ public class GameEngine {
         long elapsedMillis = SystemClock.elapsedRealtime() - m.ch.getBase();
 
 
-        sure = String.format("%d sn",
+        sure = String.format(" Sn",
                 TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)*60+TimeUnit.MILLISECONDS.toSeconds(elapsedMillis) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(elapsedMillis)));
 
