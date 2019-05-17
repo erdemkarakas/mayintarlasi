@@ -100,7 +100,7 @@ public class Signin extends AppCompatActivity {
 
                 HttpAsyncTask LogIn = new HttpAsyncTask();
                 /* Buraya webb api linki gelecek*/
-                LogIn.execute("http://192.168.1.39:9090/Api/Values/UserCheck");
+                LogIn.execute("http://erdemkarakas.somee.com/Api/Values/UserCheck");
 
 
         }
@@ -183,6 +183,7 @@ public class Signin extends AppCompatActivity {
 
                         JSONObject jsonObject = new JSONObject(new String(result.getBytes("ISO-8859-1"), "UTF-8"));
                         m.kullanici_id = jsonObject.getString("user_id");
+                        m.user_type = jsonObject.getString("user_type");
 
                         Toast.makeText(Signin.this, "Giriş yaptınız", Toast.LENGTH_SHORT).show();
 

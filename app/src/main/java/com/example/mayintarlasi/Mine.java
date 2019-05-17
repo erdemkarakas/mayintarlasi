@@ -22,6 +22,7 @@ public class Mine extends AppCompatActivity {
     ImageButton btn_baslat;
 
     public static String kullanici_id;
+    public static String user_type;
 
 
     public static com.example.mayintarlasi.views.grid.Grid mayintarlasiGridView;

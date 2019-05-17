@@ -92,7 +92,7 @@ public class Signup extends AppCompatActivity {
 
             HttpAsyncTask LogIn = new HttpAsyncTask();
             /* buraya webb api linki gelecek*/
-            LogIn.execute("http://192.168.1.39:9090/Api/Values/newuser");
+            LogIn.execute("http://erdemkarakas.somee.com/Api/Values/newuser");
 
 
         }

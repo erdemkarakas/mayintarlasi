@@ -13,9 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-        <activity android:name=".Popupbomb"
-            android:theme="@style/MypopupTheme">
-            </activity>
+        <activity android:name=".List"></activity>
+        <activity
+            android:name=".Popupbomb"
+            android:theme="@style/MypopupTheme"></activity>
         <activity
             android:name=".Signin"
             android:theme="@style/AppTheme.Launcher">

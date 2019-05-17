@@ -37,13 +37,12 @@ public class GameEngine {
     public static final int WIDTH = 10;
     public static final int HEIGHT = 16;
 
-
     Mine m = new Mine();
 
 
     private Context context;
 
-    public String sure;
+    public static String sure;
 
     private Cell[][] MinesweeperGrid = new Cell[WIDTH][HEIGHT];
 
@@ -146,10 +145,6 @@ public class GameEngine {
 
             recordsave();
 
-            Popupbomb pb= new Popupbomb();
-            pb.sure = sure;
-
-            context.startActivity(new Intent(context, Popupbomb.class));
 
 
         }
@@ -160,7 +155,11 @@ public class GameEngine {
 
         HttpAsyncTask LogIn = new HttpAsyncTask();
         /* buraya webb api linki gelecek*/
-        LogIn.execute("http://192.168.1.39:9090/Api/Values/recordsave");
+        LogIn.execute("http://erdemkarakas.somee.com/Api/Values/recordsave");
+
+
+
+        context.startActivity(new Intent(context, Popupbomb.class));
     }
 
     public static String POST(String url, JSONObject jsonObject) {
